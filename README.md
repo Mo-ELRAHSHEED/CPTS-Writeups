@@ -10,8 +10,7 @@ This repository serves as a technical knowledge base where I document my methodo
 
 | Write-up | Category | Platform |
 | :--- | :--- | :--- |
-| [**Pass the Ticket (PtT) Attack**](./Pass-the-Ticket-Walkthrough.md) | Kerberos Abuse | HTB CPTS |
-| [**Linux Privilege Escalation**](./priv_esc.md) | Privilege Escalation | HTB CPTS |
+| [[**Pass the Ticket (PtT) Attack**](./Pass-the-Ticket-Walkthrough.md)](https://www.google.com/search?q=./HTB-CPTS-Pass-the-Ticket.md) | Kerberos Abuse | HTB CPTS |
 
 ---
 
