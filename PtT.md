@@ -7,6 +7,7 @@
 > *This write-up is for educational purposes only. All activities were performed in a controlled, private lab environment provided by Hack The Box (HTB). Unauthorized access to computer systems is illegal and unethical.*
 
 ---
+<img width="969" height="608" alt="PtT" src="https://github.com/user-attachments/assets/04dd4344-3ee8-44c3-b9fd-9a6e8cc7fc61" />
 
 ## 1. Introduction
 Pass the Ticket (PtT) is a post-exploitation technique where an attacker uses a stolen Kerberos ticket (TGT or TGS) to authenticate to a remote system without knowing the user’s plaintext password.
@@ -29,6 +30,9 @@ xfreerdp3 /v:'10.129.204.23' /u:'Administrator' /p:'AnotherC0mpl3xP4$$'
 ```
 
 Upon successful login, we launched a Command Prompt as Administrator and navigated to the tools directory (`C:\tools`). We utilized **Rubeus** to assess the current Kerberos state.
+<img width="800" height="571" alt="1_uzCetrw9A2eEcOp4obAArA" src="https://github.com/user-attachments/assets/a86f54bb-cb3e-45e0-9a7d-963987bb1928" />
+<img width="583" height="162" alt="1_9iWTdpB0ayCY5E_iijVTGg" src="https://github.com/user-attachments/assets/297457fc-c916-428a-baeb-f1e098903a29" />
+
 
 ```cmd
 Rubeus.exe dump /nowrap
