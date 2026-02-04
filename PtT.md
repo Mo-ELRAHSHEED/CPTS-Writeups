@@ -1,4 +1,5 @@
 <img width="969" height="608" alt="PtT" src="https://github.com/user-attachments/assets/04dd4344-3ee8-44c3-b9fd-9a6e8cc7fc61" />
+
 ```markdown
 # Pass the Ticket (PtT) Attack | HTB Password Attacks
 **Category:** HTB CPTS Certification Lab  
@@ -120,7 +121,6 @@ Enter-PSSession -ComputerName DC01
 
 This lab demonstrated how compromising a single endpoint allows an attacker to harvest material from memory and pivot deeper into a network. Using **Mimikatz** for Overpass-the-Hash and **Rubeus** for Pass-the-Ticket highlights why protecting privileged sessions is critical.
 
-```
 
 ---
 
